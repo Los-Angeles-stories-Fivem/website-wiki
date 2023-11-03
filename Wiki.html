@@ -1,29 +1,91 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
-    <title>Wiki 1 - Los Angeles Stories</title>
-    <link rel="stylesheet" type="text/css" href="menu.css"> <!-- Assurez-vous d'ajouter le lien vers votre fichier CSS ici -->
-</head>
+    <title> Contact - Los Angeles Stories</title>
+    <link rel="stylesheet" href="menu.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
-    <header>
-        <h1>Los Angeles Stories</h1>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <!-- Ajoutez d'autres liens vers vos pages ici -->
+  <div class="sidebar">
+    <div class="logo-details">
+      <i id="logo"></i>
+        <div class="logo_name">Los Angeles Stories</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+           <!-- categorie recherche
+      <li>
+        <i class='bx bx-search' ></i>
+        <form id="searchForm" action="resultats.html" method="get">
+          <input type="text" id="searchInput" placeholder="Rechercher...">
+          <div id="searchResults"></div>
+       <span class="tooltip">Search</span>
+      </form>
+      </li> -->
+      <li>
+        <a href="/index.html">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Accueil</span>
+        </a>
+         <span class="tooltip">Accueil</span>
+      </li>
+       <!-- categorie wiki -->
+       <li class="active">
+        <a href="/Wiki.html">
+            <i class='bx bx-folder' ></i>
+            <span class="links_name">Wiki</span>
+        </a>
+        <span class="tooltip">Wiki</span>
+        <ul class="sub-menu">
+            <li><a href="/WikiPage1.html">Wiki Page 1</a></li>
+            <li><a href="/WikiPage2.html">Wiki Page 2</a></li>
+            <!-- Ajoutez autant de pages que nécessaire -->
         </ul>
-    </nav>
+    </li>
+      <!-- categorie contact -->
+      <li>
+        <a href="/Contact.html">
+          <i class='bx bx-cog' ></i>
+          <span class="links_name">Contact</span>
+        </a>
+        <span class="tooltip">Contact</span>
+      </li>
+    </ul>
+  </div>
+<section class="home-section">
+    <h1 class="text">Wiki</h1><br>
+    <p class="texte">Introduction au Wiki</p><br>
+    <p class="texte">Voici quelques informations sur notre Wiki.</p>
+    <button id="bton" onclick="allerPageSuivante()">+</button>
+</section>
 
-    <main>
-        <h2>Wiki 1</h2>
-        <p>voila bienvenu</p>                                                                                        
-    </main>
-    <footer>
-        <p>© 2023 Los Angeles stories</p>
-    </footer>
+ <!-- script bouton menu JS -->
+  <script>
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.querySelector("#btn");
+  let searchBtn = document.querySelector(".bx-search");
+
+  closeBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("open");
+    menuBtnChange();//calling the function(optional)
+  });
+
+  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+  });
+
+  // following are the code to change sidebar button(optional)
+  function menuBtnChange() {
+   if(sidebar.classList.contains("open")){
+     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+   }else {
+     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+   }
+  }
+  </script>
 </body>
 </html>
